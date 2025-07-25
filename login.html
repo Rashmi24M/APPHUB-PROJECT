@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login / Sign Up - App Hub</title>
+  <style>
+    body {
+      background-color: white;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .auth-container {
+      background-color: #1e1e1e;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #333;
+      width: 320px;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+
+    .tabs button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 16px;
+      padding: 10px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+    }
+
+    .tabs button.active {
+      border-color: #00bfff;
+    }
+
+    form {
+      display: none;
+    }
+
+    form.active {
+      display: block;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button.submit-btn {
+      background-color: #00bfff;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      width: 340px;
+    }
+
+    p.message {
+      color: #ffaaaa;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-container">
+    <div class="tabs">
+      <button id="signInTab" class="active">Sign In</button>
+      <button id="signUpTab">Sign Up</button>
+    </div>
+
+    <!-- Sign In Form -->
+    <form id="signInForm" class="active" onsubmit="loginUser(event)">
+      <input type="text" id="loginUsername" placeholder="Username" required />
+      <input type="password" id="loginPassword" placeholder="Password" required />
+      <button type="submit" class="submit-btn">Login</button>
+      <p id="loginMsg" class="message"></p>
+    </form>
+
+    <!-- Sign Up Form -->
+    <form id="signUpForm" onsubmit="registerUser(event)">
+      <input type="text" id="signupUsername" placeholder="Choose Username" required />
+      <input type="password" id="signupPassword" placeholder="Choose Password" required />
+      <button type="submit" class="submit-btn">Create Account</button>
+      <p id="signupMsg" class="message"></p>
+    </form>
+  </div>
+
+  <script>
+    // Tab toggle logic
+    const signInTab = document.getElementById('signInTab');
+    const signUpTab = document.getElementById('signUpTab');
+    const signInForm = document.getElementById('signInForm');
+    const signUpForm = document.getElementById('signUpForm');
+
+    signInTab.onclick = () => {
+      signInTab.classList.add('active');
+      signUpTab.classList.remove('active');
+      signInForm.classList.add('active');
+      signUpForm.classList.remove('active');
+    };
+
+    signUpTab.onclick = () => {
+      signUpTab.classList.add('active');
+      signInTab.classList.remove('active');
+      signUpForm.classList.add('active');
+      signInForm.classList.remove('active');
+    };
+
+    // Register user and store in localStorage
+    function registerUser(e) {
+      e.preventDefault();
+      const username = document.getElementById('signupUsername').value.trim();
+      const password = document.getElementById('signupPassword').value.trim();
+      const msg = document.getElementById('signupMsg');
+
+      let users = JSON.parse(localStorage.getItem('users') || '{}');
+
+      if (users[username]) {
+        msg.textContent = "⚠️ Username already exists!";
+        return;
+      }
+
+      users[username] = password;
+      localStorage.setItem('users', JSON.stringify(users));
+      msg.style.color = "lightgreen";
+      msg.textContent = "✅ Account created! Please log in.";
+      signInTab.click(); // switch to login
+    }
+
+    // Login user and validate
+    function loginUser(e) {
+      e.preventDefault();
+      const username = document.getElementById('loginUsername').value.trim();
+      const password = document.getElementById('loginPassword').value.trim();
+      const msg = document.getElementById('loginMsg');
+
+      let users = JSON.parse(localStorage.getItem('users') || '{}');
+
+      if (users[username] === password) {
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('loggedInUser', username);
+        window.location.href = 'index.html';
+      } else {
+        msg.textContent = "❌ Invalid username or password.";
+      }
+    }
+  </script>
+</body>
+</html>
