@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>App Hub</title>
+  
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-pD0P+XQpt+4m364OZoE9uJCuxI9RexO6kQurwubWzG1U0gqS3VQ1PfZxQDy8bkO0j4zoWESi3yluR4NdXREuXg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  
+
+  
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="logo.jpg" alt="App Hub Logo">
+    </div>
+
+    <div class="search-login-container" style="margin-left:auto; display:flex; align-items:center; gap:12px;">
+      <input
+        type="text"
+        id="searchBar"
+        class="search-bar"
+        placeholder="Search apps…"
+        style="padding:8px 10px; border-radius:30px; border:none; font-size:14px;"
+        oninput="searchApps()"
+      />
+       <a href="login.html" class="login-button">🔐 AppHub Account</a>
+       <script>
+  document.addEventListener("click", function (e) {
+    const target = e.target.closest("a"); // Find the nearest <a> tag clicked
+
+    if (target && target.href.startsWith("http")) {
+      if (localStorage.getItem("isLoggedIn") !== "true") {
+        e.preventDefault(); // Block navigation
+        alert("Please log in to launch apps.");
+        window.location.href = "login.html";
+      }
+    }
+  });
+</script>
+
+       
+
+      <a href="login.html" class="login-link" title="Login">
+        <i class="fa-solid fa-user login-icon"></i>
+      </a>
+    </div>
+    
+    <nav class="category-nav">
+      <ul>
+        <li><a href="#" onclick="filterApps('all')">All</a></li>
+        <li><a href="#" onclick="filterApps('social media')">Social Media</a></li>
+        <li><a href="#" onclick="filterApps('movies')">Movies</a></li>
+        <li><a href="#" onclick="filterApps('travel')">Travel</a></li>
+        <li><a href="#" onclick="filterApps('shopping')">Shopping</a></li>
+        <li><a href="#" onclick="filterApps('food')">Food</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <img src="ban.png" class="banner-img" />
+    <div class="hero-text">
+      <h2>Discover <em>AppHub</em> That Do More With Less</h2>
+      <p>App Hub offers a centralized platform for web apps. Easy browsing, fast access, and simple publishing. Focus on lightweight, useful applications.</p>
+    </div>
+  </section>
+
+  <section class="apps-section">
+    <h2 style="text-align:center; margin-bottom: 20px;">Explore Apps</h2>
+    <div class="app-cards">
+
+      <div class="app-card" data-category="social media">
+        <img src="https://img.freepik.com/free-vector/instagram-icon_1057-2227.jpg" alt="Instagram">
+        <h3>Instagram</h3>
+        <p>Connect through photos & reels instantly.</p>
+        <a href="https://www.instagram.com/" target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+
+      <div class="app-card" data-category="social media">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png" alt="Facebook">
+        <h3>Facebook</h3>
+        <p>Stay in touch with friends and communities.</p>
+        <a href="https://www.facebook.com" target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+
+      <div class="app-card" data-category="social media">
+        <img src="twit.jpeg" alt="twitter">
+        <h3>Twitter</h3>
+        <p>Get updated with Twitter</p>
+        <a href="https://x.com/home" target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+
+      <div class="app-card" data-category="social media">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFEI8MiQDCok91Gf-nU7JU7I6V0EYtvhrzmg&s" alt="telegram">
+        <h3>Telegram</h3>
+        <p>Telegram will be free forever</p>
+        <a href="https://x.com/home" target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+      
+
+      <div class="app-card" data-category="movies">
+        <img src="https://yt3.googleusercontent.com/CvgBA1ypUZNxOjiCX0l1V2FbAm7oSDPZE4YkMvkpT_4iLXQ3IXWVtBgWnznHxgtcUoj50TXqZA=s900-c-k-c0x00ffffff-no-rj" alt="Netflix">
+        <h3>Netflix</h3>
+        <p>Unlimited Entertainment, Endless possibilities.</p>
+        <a href="https://www.netflix.com" target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+      <div class="app-card" data-category="movies">
+        <img src=" https://play-lh.googleusercontent.com/bp4jknyVZ8yDKhER9thIS1p9MBeU2LABqBX-sO8uaL1h5_keqlgMUmXv-CjfRWaqKw     " alt="JioHotstar">
+        <h3>JioHotstar</h3>
+        <p>Every day a sport</p>
+        <a href="https://www.hotstar.com/in " target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+
+      <div class="app-card" data-category="shopping">
+        <img src="https://1000logos.net/wp-content/uploads/2016/10/Amazon-Logo-2000.png" alt="Amazon">
+        <h3>Amazon</h3>
+        <p>Empowering Dreams, Enriching Lives.</p>
+        <a href="https://www.amazon.com" target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+
+      <div class="app-card" data-category="food">
+        <img src="https://1000logos.net/wp-content/uploads/2021/05/Swiggy-logo.png" alt="Swiggy">
+        <h3>Swiggy</h3>
+        <p>Taste meets speed - Swiggy.</p>
+        <a href="https://www.swiggy.com/" target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+
+      
+      <div class="app-card" data-category="shopping">
+        <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXe2TyrlBaPIjRW3xA4hmZJwumx3yfajDnmQ&s   " alt="Flipkart">
+        <h3>Flipkart</h3>
+        <p>Where your wishes come true</p>
+        <a href="https://www.flipkart.com/ " target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+
+      <div class="app-card" data-category="travel">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlJIOGtHi6yLhWs9gI0Bz1T83KoUzuqCQ7IQ&s" alt="Uber">
+        <h3>Uber</h3>
+        <p>On our way.</p>
+        <a href="https://www.uber.com" target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+      <div class="app-card" data-category="shopping">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Nykaa_New_Logo.svg/2560px-Nykaa_New_Logo.svg.png  " alt="Nykaa">
+        <h3>Nykaa</h3>
+        <p>Your beauty our passion</p>
+        <a href="https://www.nykaa.com " target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+      <div class="app-card" data-category="food">
+        <img src="https://play-lh.googleusercontent.com/Zqv3j3gWCWrxuHW1VkRKNWso3beRsrwPCj58kG_Ile6iGGSf1YfkPYhKExXKY7_L0lU=s256-rw " alt="Zomato">
+        <h3>Zomato</h3>
+        <p>Never have a bed meal</p>
+        <a href=" https://www.zomato.com/ " target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+
+      <!-- Another App -->
+      <div class="app-card" data-category="food">
+        <img src="https://1000logos.net/wp-content/uploads/2021/05/Swiggy-logo.png " alt="Swiggy">
+        <h3>Swiggy</h3>
+        <p>Taste meets speed-Swiggy</p>
+        <a href=" https://www.swiggy.com/ " target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+
+      <div class="app-card" data-category="food">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/McDonald%27s_square_2020.svg/960px-McDonald%27s_square_2020.svg.png  " alt="McDonald's">
+      <h3>McDonald's</h3>
+      <p>Your favorite burgers & fries!</p>
+      <a href="https://www.mcdelivery.co.in" target="_blank">
+        <button>LAUNCH</button>
+      </a>
+    </div>
+
+      <div class="app-card" data-category="travel">
+        <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7YUy-zS1QhowIo3DVj_oE6fA1V-fQYm6YwA&s    " alt="Ola">
+        <h3>Ola</h3>
+        <p>Let's Go</p>
+        <a href="https://www.olacabs.com/" target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+
+      <!-- Add more app cards here -->
+      <div class="app-card" data-category="travel">
+        <img src="https://animationvisarts.com/wp-content/uploads/2023/10/Rapido.png " alt="Rapido">
+        <h3>Rapido</h3>
+        <p>Never too far</p>
+        <a href="https://www.rapido.bike/ " target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    function filterApps(category) {
+      const apps = document.querySelectorAll('.app-card');
+      apps.forEach(app => {
+        if (category === 'all' || app.getAttribute('data-category') === category) {
+          app.style.display = 'block';
+        } else {
+          app.style.display = 'none';
+        }
+      });
+    }
+
+    function searchApps() {
+      const query = document.getElementById('searchBar').value.toLowerCase();
+      const apps = document.querySelectorAll('.app-card');
+      apps.forEach(app => {
+        const appName = app.querySelector('h3').textContent.toLowerCase();
+        if (appName.includes(query)) {
+          app.style.display = 'block';
+        } else {
+          app.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyCb7i2E57CxjjRgG7rvevcIo7ijjPUFeI0",
+    authDomain: "appstore-99f46.firebaseapp.com",
+    projectId: "appstore-99f46",
+    storageBucket: "appstore-99f46.firebasestorage.app",
+    messagingSenderId: "536299375673",
+    appId: "1:536299375673:web:b4ebb133636af71dced1e8",
+    measurementId: "G-TGGXPENBT9"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>

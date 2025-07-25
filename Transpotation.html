@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mini App Store</title>
+  <!-- <link rel="stylesheet" href="style.css" /> -->
+   <style>
+    /* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f7f8fa;
+  color: #333;
+}
+
+/* Header */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #1e1e2f;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.nav-links ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #e0e0e0;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #00ffc8;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #ffffff;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* App Grid */
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  padding: 40px;
+}
+
+/* App Card */
+.app-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.app-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.app-card h3 {
+  margin-bottom: 10px;
+}
+
+.app-card p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.app-card button {
+  padding: 10px 20px;
+  background-color: #00c89c;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.app-card button:hover {
+  background-color: #00a381;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #1e1e2f;
+  color: white;
+  margin-top: 30px;
+}
+
+   </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="main-header">
+    <div class="logo">Transport</div>
+    
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Discover & Launch Top Transport Apps</h1>
+    <p>Your one-stop hub for instant access to your favorite platforms.</p>
+  </section>
+
+  <!-- App Store Section -->
+  <main id="apps">
+    <div class="app-grid">
+
+      <!-- Example App Card -->
+      <div class="app-card">
+        <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlJIOGtHi6yLhWs9gI0Bz1T83KoUzuqCQ7IQ&s" alt="Uber">
+        <h3>Uber</h3>
+        <p>On our way</p>
+        <a href=" https://www.uber.com " target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+
+      <!-- Another App -->
+      <div class="app-card">
+        <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7YUy-zS1QhowIo3DVj_oE6fA1V-fQYm6YwA&s    " alt="Ola">
+        <h3>Ola</h3>
+        <p>Let's Go</p>
+        <a href="https://www.olacabs.com " target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+
+      <!-- Add more app cards here -->
+      <div class="app-card">
+        <img src="https://animationvisarts.com/wp-content/uploads/2023/10/Rapido.png " alt="Rapido">
+        <h3>Rapido</h3>
+        <p>Never too far</p>
+        <a href="https://www.rapido.bike/ " target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 APP HUB. Made with ❤️ for Hackathons.</p>
+  </footer>
+
+</body>
+</html>
