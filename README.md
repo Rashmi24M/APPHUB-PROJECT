@@ -67,9 +67,6 @@ You can deploy AppHub easily with Firebase. Here's how:
 
 💡 *Tip: You can upload to GitHub first, then deploy to Firebase whenever you're ready. They are independent.*
 
-## ✨ Firebase hosted Link
-
----https://apphub-73aa6.web.app/
 
 ## ✨ Future Improvements
 
